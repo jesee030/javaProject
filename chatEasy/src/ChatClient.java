@@ -84,6 +84,7 @@ public class ChatClient implements ActionListener,Runnable{
 
             //创建线程在后台处理对方的消息
             thread=new Thread(this);
+            //setPriority:更改线程优先级，MIN_PRIORITY为最大优先级--1
             thread.setPriority(Thread.MIN_PRIORITY);
             thread.start();
         } catch (UnknownHostException e1){
