@@ -109,6 +109,11 @@ public class ChatServer implements ActionListener,Runnable {
                 outToClient.writeUTF(s);
                 outToClient.flush();
                 showArea.append("[服务端]：" + msgText.getText() + "\n");
+                if(msgText.getText().equals("end")){
+                    showArea.append("[客户端]："+"end"+"\n");
+                    serverSocket.close();
+                    showArea.append("disconnected\n");
+                }
                 msgText.setText(null);
             } catch (IOException el) {
                 showArea.append("你的消息：“" + msgText.getText() + "”未能发出去!\n");

@@ -110,6 +110,11 @@ public class ChatClient implements ActionListener,Runnable{
                 outToServer.writeUTF(s);
                 outToServer.flush();
                 showArea.append("[客户端]： "+msgText. getText()+"\n");
+                if (msgText. getText().equals("end")){
+                    showArea.append("[服务端]："+"end"+"\n");
+                    connectToServer.close();
+                    showArea.append("client disconnected\n");
+                }
             } catch (IOException e1){
                 showArea.append("你的消息：“"+msgText.getText()+"”未能发送出去！\n");
             }
